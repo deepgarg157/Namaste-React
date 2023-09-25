@@ -1,5 +1,17 @@
 # Namaste React
 
+# npm & npx
+- npm - node package manager
+- npx - node package excute
+
+# Core React
+# JSX- JavaScript Excute
+  Two JSX in React
+- React Element
+  Components in JSX
+- Class Based Components
+- React Functional Components
+
 # parcel
 - Dev Build
 - Loacl Server
