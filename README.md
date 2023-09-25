@@ -7,8 +7,8 @@
 # Core React
 # JSX- JavaScript Excute
   Two JSX in React
-- React Element
-  Components in JSX
+- React Element in JSX
+- Components in JSX
 - Class Based Components
 - React Functional Components
 
@@ -56,3 +56,7 @@
  export const Components="";
  import {Components} from "path";
 
+# React Hooks
+- normal JS function
+- useState()
+- useEffect()
