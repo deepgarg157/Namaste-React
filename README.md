@@ -31,6 +31,7 @@
 - Tree Shaking
 - Different dev and prod bundles
 
+# App through React library
 /**
  * Header
  * - Logo
@@ -46,7 +47,7 @@
  * - Contact
  */
 
- Two types of export/import 
+ # Two types of export/import 
 
  - default export/import
  export default Components;
@@ -57,6 +58,9 @@
  import {Components} from "path";
 
 # React Hooks
-- normal JS function
+- normal JS utility function
 - useState()
 - useEffect()
+
+# reconciliation algorithm ( React fiber )
+- virtual DOM is the representation of Actual DOM..
