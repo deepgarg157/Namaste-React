@@ -65,3 +65,7 @@ A hook is a normal java script function which react give to us which have a spec
 
 # reconciliation algorithm ( React fiber )
 - virtual DOM is the representation of Actual DOM..
+load > api > render
+load > render > API > render 
+
+# Shimmer UI
