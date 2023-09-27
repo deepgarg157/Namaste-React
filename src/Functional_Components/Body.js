@@ -1,6 +1,6 @@
 import RestaurrentCard from "./RestaurrentCard";
 import resList from "../utils/mock_data";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Body = () => {
 
@@ -62,6 +62,17 @@ const Body = () => {
   //     }
   //   }
   // ]
+
+  useEffect(()=>{
+    fetchData()
+  }, [])
+
+  const fetchData= async ()=>{
+     const data= await fetch("https://www.swiggy.com/mapi/homepage/getCards?lat=28.6302312&lng=77.4349177")
+     const json= await data.json()
+     console.log(json);
+     console.log(typeof json);
+  }
 
   return (
     <div className="body">

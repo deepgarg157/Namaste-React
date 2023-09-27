@@ -57,7 +57,8 @@
  export const Components="";
  import {Components} from "path";
 
-# React Hooks
+# React Hooks 
+A hook is a normal java script function which react give to us which have a specific usecase..
 - normal JS utility function
 - useState()
 - useEffect()
