@@ -1,11 +1,19 @@
 # Namaste React
 
+React is a JavaScript library for building user interfaces.
+React is used to build single-page applications.
+React allows us to create reusable UI components.
+
 # npm & npx
 - npm - node package manager
 - npx - node package excute
 
 # Core React
-# JSX- JavaScript Excute
+# JSX- JavaScript XML
+- JSX stands for JavaScript XML.
+  JSX allows us to write HTML in React.
+  JSX makes it easier to write and add HTML in React.
+
   Two JSX in React
 - React Element in JSX
 - Components in JSX
@@ -69,3 +77,5 @@ load > api > render
 load > render > API > render 
 
 # Shimmer UI
+- show demo UI through shimmer before load the api..
+ 
