@@ -6,8 +6,11 @@ import Shimmer from "./Shimmer";
 const Body = () => {
 
   // Local state variables - super power variable
+  // hooks useState
+  const [listRestaurrent, setListOfRestaurants] = useState([]);
+  const [filterRest, setFilterRest]=useState([]);
 
-  let [listRestaurrent, setListOfRestaurants] = useState([])
+  const [inputSearch, SetInputSearch]= useState("")
 
   // normal JS variables
   
@@ -76,23 +79,38 @@ const Body = () => {
     const json = await data.json();
     // setListOfRestaurants(json?.data?.cards[2]?.data?.data?.cards);
     setListOfRestaurants(resList)
+    setFilterRest(resList)
   }
 
-  // if(listRestaurrent.length == 0){
-  // return <Shimmer/>
-  // } 
+  if(listRestaurrent.length == 0){
+  return <Shimmer/>
+  } 
 
   return listRestaurrent.length == 0 ? <Shimmer/> : (
     <div className="body">
       <div className="filter">
+        <div className="search-container">
+          
+          <input type="text" name="input" className="input" value={inputSearch} onChange={(e)=>{
+                    SetInputSearch(e.target.value);
+          }}/>
+
+          <button onClick={()=>{
+            const filterRestaurant=listRestaurrent.filter((res)=> res.info.name.toLowerCase().includes(inputSearch))
+            setFilterRest(filterRestaurant)
+          }}>Search</button>
+
+        </div>
         <button className="filter-btn" onClick={() => {
-          const filteredList = listRestaurrent.filter(rate => rate.info.avgRating > 4)
-          setListOfRestaurants(filteredList)
+          let filteredRestaurant = listRestaurrent.filter(rate => rate.info.avgRating > 4)
+          setListOfRestaurants(filteredRestaurant)
         }}>Top Rated Restaurrents</button>
+
       </div>
       <div className="res-container">
-        {listRestaurrent.map((restaurant) => (<RestaurrentCard resName={restaurant} />))}
+        {filterRest.map((restaurant) => (<RestaurrentCard resName={restaurant} />))}
       </div>
+
     </div>
   )
 }

@@ -8,6 +8,14 @@ React allows us to create reusable UI components.
 - npm - node package manager
 - npx - node package excute
 
+- npx create-react-app "file name"
+- cd "file name"
+- npm run start or npm start
+
+- npm create vite@latest
+- "project name"
+- npm run dev - to run the file of vite + react
+
 # Core React
 # JSX- JavaScript XML
 - JSX stands for JavaScript XML.
@@ -66,13 +74,17 @@ React allows us to create reusable UI components.
  import {Components} from "path";
 
 # React Hooks 
-A hook is a normal java script function which react give to us which have a specific usecase..
+A hook is a normal java script function which react give to us it has its own specific usecase..
 - normal JS utility function
 - useState()
 - useEffect()
 
+- Note:- useEffect should be called after the functional components..
+
 # reconciliation algorithm ( React fiber )
 - virtual DOM is the representation of Actual DOM..
+
+# Monolith
 load > api > render
 load > render > API > render 
 
