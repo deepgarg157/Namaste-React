@@ -16,6 +16,9 @@ React allows us to create reusable UI components.
 - "project name"
 - npm run dev - to run the file of vite + react
 
+# Redux
+- npm i redux react-redux redux-thunk
+
 # Core React
 # JSX- JavaScript XML
 - JSX stands for JavaScript XML.
@@ -79,7 +82,12 @@ A hook is a normal java script function which react give to us it has its own sp
 - useState()
 - useEffect()
 
-- Note:- useEffect should be called after the functional components..
+- Note:- 1. useEffect should be called after the functional components..
+         2. if no dependency is there => useEffect is called every time on at components render
+         3. if dependency array is empty = [] => useEffect is called after the components is render (and useEffect is render once only).......
+         4. if dependency array is [is something] => useEffect is render every time when the something file is updated everytime.......
+         
+
 
 # reconciliation algorithm ( React fiber )
 - virtual DOM is the representation of Actual DOM..

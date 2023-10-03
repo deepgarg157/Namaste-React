@@ -82,9 +82,9 @@ const Body = () => {
     setFilterRest(resList)
   }
 
-  if(listRestaurrent.length == 0){
-  return <Shimmer/>
-  } 
+  // if(listRestaurrent.length == 0){
+  // return <Shimmer/>
+  // } 
 
   return listRestaurrent.length == 0 ? <Shimmer/> : (
     <div className="body">
@@ -102,7 +102,8 @@ const Body = () => {
 
         </div>
         <button className="filter-btn" onClick={() => {
-          let filteredRestaurant = listRestaurrent.filter(rate => rate.info.avgRating > 4)
+          console.log("clicked on rated button");
+          let filteredRestaurant = listRestaurrent.filter(rate => rate.info.avgRating >= 3.5)
           setListOfRestaurants(filteredRestaurant)
         }}>Top Rated Restaurrents</button>
 

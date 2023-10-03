@@ -3,6 +3,7 @@ const resList = [
       "info": {
         "id": "641038",
         "name": "Biryani Mahal",
+        "avgRating": 4,
         "cloudinaryImageId": "jgyhyl8ttz7owvit7liu",
         "locality": "Shahberi",
         "areaName": "crossing republic",
@@ -13,7 +14,6 @@ const resList = [
           "Indian",
           "Chinese"
         ],
-        "avgRating": 4,
         "feeDetails": {
           "restaurantId": "641038",
           "fees": [
