@@ -10,7 +10,7 @@ const Body = () => {
   const [listRestaurrent, setListOfRestaurants] = useState([]);
   const [filterRest, setFilterRest]=useState([]);
 
-  const [inputSearch, SetInputSearch]= useState("")
+  const [inputSearch, SetInputSearch]= useState("");
 
   // normal JS variables
   
@@ -90,7 +90,7 @@ const Body = () => {
     <div className="body">
       <div className="filter">
         <div className="search-container">
-          
+
           <input type="text" name="input" className="input" value={inputSearch} onChange={(e)=>{
                     SetInputSearch(e.target.value);
           }}/>
