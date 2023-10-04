@@ -16,6 +16,9 @@ React allows us to create reusable UI components.
 - "project name"
 - npm run dev - to run the file of vite + react
 
+# router-dom
+- npm i react-router-dom
+
 # Redux
 - npm i redux react-redux redux-thunk
 
@@ -86,7 +89,9 @@ A hook is a normal java script function which react give to us it has its own sp
          2. if no dependency is there => useEffect is called every time on at components render
          3. if dependency array is empty = [] => useEffect is called after the components is render (and useEffect is render once only).......
          4. if dependency array is [is something] => useEffect is render every time when the something file is updated everytime.......
-         
+
+- Note:- 1. dont use if, for loop, function conditon while use Hooks useState...
+         2.      
 
 
 # reconciliation algorithm ( React fiber )
@@ -98,4 +103,7 @@ load > render > API > render
 
 # Shimmer UI
 - show demo UI through shimmer before load the api..
+
+# Rounter React
+
  

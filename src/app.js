@@ -2,6 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./Functional_Components/Header";
 import Body from "./Functional_Components/Body";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import About from "./Functional_Components/About";
+import Contact from "./Functional_Components/Contact";
+import Error from "./Functional_Components/Error";
 
 // const heading= React.createElement('h1', {}, 'Hello World with React')
 // const root = ReactDOM.createRoot(document.getElementById('root'))
@@ -78,6 +82,22 @@ const AppLayout = () => {
   )
 }
 
+const appRouter= createBrowserRouter([
+  {
+    path:"/",
+    element:<AppLayout />,
+    errorElement:<Error />
+  },
+  {
+    path:"/About",
+    element:<About />
+  },
+  {
+    path:"/contact",
+    element:<Contact />
+  }
+])
+
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
-root.render(<AppLayout />);
+root.render(<RouterProvider router={appRouter} />);
