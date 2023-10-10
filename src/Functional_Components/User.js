@@ -7,11 +7,21 @@ const User=(props)=>{
     const [count2]=useState(1)
 
     useEffect(()=>{
-    //  api call here
+    const timer = setInterval(()=>{
+        console.log("Useeffect is called")
+    },1000)
+
+    return ()=>{
+        clearInterval(timer)
+        console.log("useEffect timer is return")
+    }
+
     },[])
 
+   console.log("render");
+
     const {name}=props
-    return(
+    return (
         <div className="user-card">
             <h1>Count: {count}</h1>
             <button onClick={()=>{
