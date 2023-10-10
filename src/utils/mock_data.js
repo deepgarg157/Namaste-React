@@ -1,7 +1,7 @@
 const resList = [
     {
       "info": {
-        "id": "641038",
+        "id": "123",
         "name": "Biryani Mahal",
         "avgRating": 4,
         "cloudinaryImageId": "jgyhyl8ttz7owvit7liu",

@@ -2,10 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./Functional_Components/Header";
 import Body from "./Functional_Components/Body";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import About from "./Functional_Components/About";
 import Contact from "./Functional_Components/Contact";
 import Error from "./Functional_Components/Error";
+import RestaurantMenu from "./Functional_Components/RestaurantMenu";
 
 // const heading= React.createElement('h1', {}, 'Hello World with React')
 // const root = ReactDOM.createRoot(document.getElementById('root'))
@@ -77,25 +78,36 @@ import Error from "./Functional_Components/Error";
 const AppLayout = () => {
   return (<div className="app">
     <Header />
-    <Body />
+    <Outlet />
   </div>
   )
 }
 
-const appRouter= createBrowserRouter([
+const appRouter = createBrowserRouter([
   {
-    path:"/",
-    element:<AppLayout />,
-    errorElement:<Error />
+    path: "/",
+    element: <AppLayout />,
+    children: [
+      {
+        path: "/",
+        element: <Body />
+      },
+      {
+        path: "/About",
+        element: <About />
+      },
+      {
+        path: "/contact",
+        element: <Contact />
+      },
+      {
+        path:"/restaurant/resId:",
+        element:<RestaurantMenu />
+      }
+    ],
+    errorElement: <Error />
   },
-  {
-    path:"/About",
-    element:<About />
-  },
-  {
-    path:"/contact",
-    element:<Contact />
-  }
+
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
