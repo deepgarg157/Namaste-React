@@ -1,47 +1,26 @@
 import { useEffect, useState } from "react";
 import resList from "../utils/mock_data";
+import Shimmer from "./Shimmer";
+import { useParams } from "react-router-dom";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const RestaurantMenu = () => {
 
-    const restMenuInfo=[
-        {
-            "id": "641038",
-            "name": "Biryani Mahal",
-            "avgRating": 4,
-            "cloudinaryImageId": "jgyhyl8ttz7owvit7liu",
-            "locality": "Shahberi",
-            "areaName": "crossing republic",
-            "costForTwo": "₹300 for two",
-            "cuisines": [
-              "Biryani",
-              "North Indian",
-              "Indian",
-              "Chinese"]
-        }
-]
+    const { resId } = useParams()
 
-    const [resInfo, setResInfo] = useState(null)
+    const resInfo = useRestaurantMenu(resId)
 
-    // useEffect(() => {
-    //     fetchMenu()
-    // }, [])
-
-    // const fetchMenu = async () => {
-    //     const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING");
-    //     const json = await data.json()
-    //     console.log(json);
-    //     setResInfo(resList)
-    //     console.log(resInfo);
-    // }
-
-
+    const { Username, cuisines, id, avgRating } = resInfo[0].info
     return (
         <div>
-            <h2>{restMenuInfo[0].name}</h2>
+            <h2>{Username}</h2>
+            <h3>{cuisines.join(", ")}</h3>
+            <h4>{id}</h4>
+            <h4>{avgRating}</h4>
             <h3>Menu</h3>
-            <h4>{restMenuInfo[0].cuisines.join(", ")}</h4>
-            <h4>{restMenuInfo[0].avgRating}</h4>
-            <h4>{restMenuInfo[0].costForTwo}</h4>
+            <h4>cuisines</h4>
+            <h4>avgRating</h4>
+            <h4>costForTwo</h4>
             <ul>
                 <li>Burger</li>
                 <li>Pizza</li>

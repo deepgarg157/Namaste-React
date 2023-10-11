@@ -3,6 +3,7 @@ import resList from "../utils/mock_data";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import {Link} from "react-router-dom"
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
 
@@ -86,6 +87,11 @@ const Body = () => {
   // if(listRestaurrent.length == 0){
   // return <Shimmer/>
   // } 
+
+  const onlineStatus = useOnlineStatus();
+
+  if(onlineStatus === false)
+  return <h1>Please check the internet connection, your are offline!!</h1>
 
   return listRestaurrent.length == 0 ? <Shimmer/> : (
     <div className="body">

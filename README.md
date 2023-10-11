@@ -107,3 +107,12 @@ load > render > API > render
 # Rounter React
 
  
+
+# class based components 
+- constructor
+- render
+- componetsDidMount
+- componentsDidUpdate-
+- componentsWillUnmount
+
+# custom Hooks
