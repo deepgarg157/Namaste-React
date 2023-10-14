@@ -8,6 +8,7 @@ const resList = [
         "locality": "Shahberi",
         "areaName": "crossing republic",
         "costForTwo": "₹300 for two",
+        "promoted":true,
         "cuisines": [
           "Biryani",
           "North Indian",
@@ -107,6 +108,7 @@ const resList = [
         "locality": "Gautam Buddha Nagar",
         "areaName": "Gaur City 1",
         "costForTwo": "₹250 for two",
+        "promoted":true,
         "cuisines": [
           "North Indian",
           "Chinese",
@@ -204,6 +206,7 @@ const resList = [
         "locality": "Gautam Buddha Nagar",
         "areaName": "Gaur City 2",
         "costForTwo": "₹200 for two",
+        "promoted":true,
         "cuisines": [
           "Indian",
           "Snacks",

@@ -1,8 +1,8 @@
-import RestaurrentCard from "./RestaurrentCard";
+import RestaurrentCard, { withPromotedRest } from "./RestaurrentCard";
 import resList from "../utils/mock_data";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
@@ -10,12 +10,14 @@ const Body = () => {
   // Local state variables - super power variable
   // hooks useState
   const [listRestaurrent, setListOfRestaurants] = useState([]);
-  const [filterRest, setFilterRest]=useState([]);
+  const [filterRest, setFilterRest] = useState([]);
 
-  const [inputSearch, SetInputSearch]= useState("");
+  const [inputSearch, SetInputSearch] = useState("");
+
+  const promotedRestInfo = withPromotedRest(RestaurrentCard);
 
   // normal JS variables
-  
+
   // let listRestaurrent = [
   //   {
   //     "info": {
@@ -90,20 +92,20 @@ const Body = () => {
 
   const onlineStatus = useOnlineStatus();
 
-  if(onlineStatus === false)
-  return <h1>Please check the internet connection, your are offline!!</h1>
+  if (onlineStatus === false)
+    return <h1>Please check the internet connection, your are offline!!</h1>
 
-  return listRestaurrent.length == 0 ? <Shimmer/> : (
+  return listRestaurrent.length == 0 ? <Shimmer /> : (
     <div className="body">
       <div className="filter">
         <div className="search-container">
 
-          <input type="text" name="input" className="input" value={inputSearch} onChange={(e)=>{
-                    SetInputSearch(e.target.value);
-          }}/>
+          <input type="text" name="input" className="input" value={inputSearch} onChange={(e) => {
+            SetInputSearch(e.target.value);
+          }} />
 
-          <button onClick={()=>{
-            const filterRestaurant=listRestaurrent.filter((res)=> res.info.name.toLowerCase().includes(inputSearch))
+          <button onClick={() => {
+            const filterRestaurant = listRestaurrent.filter((res) => res.info.name.toLowerCase().includes(inputSearch))
             setFilterRest(filterRestaurant)
           }}>Search</button>
 
@@ -115,9 +117,19 @@ const Body = () => {
         }}>Top Rated Restaurrents</button>
 
       </div>
-      <Link to="/restaurant/resId:"><div className="res-container">
-        {listRestaurrent.map((restaurant) => (<RestaurrentCard resName={restaurant} key={restaurant.info.id} />))}
-      </div></Link>
+      <div className="res-container">
+        {listRestaurrent.map((restaurant)=>(
+          <Link
+          to="/restaurant/:resId"
+          >
+            {restaurant.info.promoted ? (
+              <promotedRestInfo resName ={restaurant} /> ) : (
+                <RestaurrentCard resName ={restaurant}/>
+              )
+            }
+          </Link>
+        ))}
+      </div>
 
     </div>
   )

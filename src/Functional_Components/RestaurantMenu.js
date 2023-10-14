@@ -30,4 +30,17 @@ const RestaurantMenu = () => {
     )
 }
 
+// High order components
+
+export const withPromotedRest = (RestaurantMenu)=>{
+   return ()=>{
+    return (
+        <div>
+            <label>Promoted</label>
+            <RestaurantMenu />
+        </div>
+    )
+   }
+}
+
 export default RestaurantMenu;
