@@ -116,3 +116,15 @@ load > render > API > render
 - componentsWillUnmount
 
 # custom Hooks
+
+<!-- Chunking
+     code spliting
+     dynamic bundling
+     lazy loading -->
+
+# lazy loading
+- suspense in side the lazy
+- fallback
+
+#Sass
+

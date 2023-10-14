@@ -110,13 +110,13 @@ const Body = () => {
         </div>
         <button className="filter-btn" onClick={() => {
           console.log("clicked on rated button");
-          let filteredRestaurant = listRestaurrent.filter(rate => rate.info.avgRating >= 3.5)
+          const filteredRestaurant = listRestaurrent.filter(rate => rate.info.avgRating >= 4)
           setListOfRestaurants(filteredRestaurant)
         }}>Top Rated Restaurrents</button>
 
       </div>
       <Link to="/restaurant/resId:"><div className="res-container">
-        {filterRest.map((restaurant) => (<RestaurrentCard resName={restaurant} key={restaurant.info.id} />))}
+        {listRestaurrent.map((restaurant) => (<RestaurrentCard resName={restaurant} key={restaurant.info.id} />))}
       </div></Link>
 
     </div>

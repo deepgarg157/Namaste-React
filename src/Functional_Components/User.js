@@ -20,7 +20,7 @@ const User=(props)=>{
 
    console.log("render");
 
-    const {name}=props
+    const {name} = props;
     return (
         <div className="user-card">
             <h1>Count: {count}</h1>

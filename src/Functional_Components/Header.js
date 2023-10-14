@@ -9,33 +9,37 @@ const Header = () => {
 
   const onlineStatus = useOnlineStatus()
 
-  return (<div className="header">
-    <div className="logo">
-      <img src={LOGO_LINK}></img>
-    </div>
-    <div className="nav-items">
-      <ul>
-        <li>
-          Online: {onlineStatus ? "✅" : "🔴"} 
-        </li>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/about">About US</Link>
-        </li>
-        <li>
-          <Link to="/contact">Contact Us</Link>
-        </li>
-        <li>Cart</li>
-        <button className="login-btn" onClick={() => {
-          btnNameReact === "Login" ? setBtnNameReact("Logout") : setBtnNameReact("Login")
-        }}>{btnNameReact}
-        </button>
-      </ul>
-    </div>
+  return (
+    <div className="header flex">
+      <div className="logo">
+        <img src={LOGO_LINK}></img>
+      </div>
+      <div className="nav-items">
+        <ul>
+          <li>
+            Online: {onlineStatus ? "✅" : "🔴"}
+          </li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About US</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact Us</Link>
+          </li>
+          <li>
+            <Link to="/grocery">Grocery</Link>
+          </li>
+          <li>Cart</li>
+          <button className="login-btn" onClick={() => {
+            btnNameReact === "Login" ? setBtnNameReact("Logout") : setBtnNameReact("Login")
+          }}>{btnNameReact}
+          </button>
+        </ul>
+      </div>
 
-  </div>
+    </div>
   )
 }
 

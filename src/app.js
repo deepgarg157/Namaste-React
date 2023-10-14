@@ -1,4 +1,4 @@
-import React from "react";
+import React, {lazy, Suspense} from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./Functional_Components/Header";
 import Body from "./Functional_Components/Body";
@@ -7,6 +7,13 @@ import About from "./Functional_Components/About";
 import Contact from "./Functional_Components/Contact";
 import Error from "./Functional_Components/Error";
 import RestaurantMenu from "./Functional_Components/RestaurantMenu";
+// import Grocery from "./Functional_Components/Grocery";
+import { Suspense, lazy } from "react";
+
+// Chunking
+// Code spliting
+// dynamic bundling
+// lazy loading - on demand loading
 
 // const heading= React.createElement('h1', {}, 'Hello World with React')
 // const root = ReactDOM.createRoot(document.getElementById('root'))
@@ -75,6 +82,8 @@ import RestaurantMenu from "./Functional_Components/RestaurantMenu";
 
 // Food App through React
 
+const Grocery = lazy(()=> import("./Functional_Components/Grocery"))
+
 const AppLayout = () => {
   return (<div className="app">
     <Header />
@@ -99,6 +108,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />
+      },
+      {
+        path:"/grocery",
+        element: <Suspense fallback={<h1>This is a grocery</h1>}><Grocery /></Suspense>
       },
       {
         path:"/restaurant/:resId",
