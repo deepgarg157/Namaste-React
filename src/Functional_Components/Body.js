@@ -1,4 +1,4 @@
-import RestaurrentCard, { withPromotedRest } from "./RestaurrentCard";
+import RestaurrentCard, { withPromotedLabel } from "./RestaurrentCard";
 import resList from "../utils/mock_data";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
@@ -14,7 +14,7 @@ const Body = () => {
 
   const [inputSearch, SetInputSearch] = useState("");
 
-  const promotedRestInfo = withPromotedRest(RestaurrentCard);
+  const RestaurrentCardPromoted = withPromotedLabel(RestaurrentCard);
 
   // normal JS variables
 
@@ -78,12 +78,13 @@ const Body = () => {
 
   async function getRestaurants() {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6302312&lng=77.4349177&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
+    console.log(json)
     // setListOfRestaurants(json?.data?.cards[2]?.data?.data?.cards);
-    setListOfRestaurants(resList)
-    setFilterRest(resList)
+    setListOfRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    setFilterRest(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
   }
 
   // if(listRestaurrent.length == 0){
@@ -121,9 +122,9 @@ const Body = () => {
         {listRestaurrent.map((restaurant)=>(
           <Link
           to="/restaurant/:resId"
+          key={restaurant.info.id}
           >
-            {restaurant.info.promoted ? (
-              <promotedRestInfo resName ={restaurant} /> ) : (
+            {restaurant.info.promoted ? <RestaurrentCardPromoted resName ={restaurant} />  : (
                 <RestaurrentCard resName ={restaurant}/>
               )
             }

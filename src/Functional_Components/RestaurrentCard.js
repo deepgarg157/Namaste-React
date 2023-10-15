@@ -22,12 +22,12 @@ const RestaurrentCard = (props) => {
 
 // high order components
 
-export const withPromotedRest = (RestaurrentCard)=>{
-  return ()=>{
+export const withPromotedLabel = (RestaurrentCard)=>{
+  return (props)=>{
     return (
       <div>
-        <label>Promoted</label>
-        <RestaurrentCard />
+        <label className="promoted">Promoted</label>
+        <RestaurrentCard {...props}/>
       </div>
     )
   }
