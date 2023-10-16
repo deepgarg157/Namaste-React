@@ -14,7 +14,7 @@ const Contact=()=>{
       }
     return(
         <div>
-            <h1>This is a Contact us Page</h1>
+            <h1 className="font-bold text-lg p-5 mx-5">This is a Contact us Page</h1>
         </div>
     )
 }

@@ -50,7 +50,7 @@ class UserClass extends React.Component {
         // const { count, count2 } = this.state
         const { name, location} = this.state.userInfo
         return (
-            <div className="user-card">
+            <div className="bg-slate-300 w-96 p-2 m-2 border-black">
                 {/* <h1>Count: {count}</h1>
                 <button onClick={() => {
                     this.setState({

@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 
 const User=(props)=>{
 
-    let [count, setCount]=useState(0)
+    const [count, setCount]=useState(0)
 
-    const [count2]=useState(1)
+    const [count2, setCount2]=useState(1)
 
     useEffect(()=>{
     const timer = setInterval(()=>{
@@ -22,7 +22,7 @@ const User=(props)=>{
 
     const {name} = props;
     return (
-        <div className="user-card">
+        <div className="bg-slate-300 w-96 p-2 m-2 border-black">
             <h1>Count: {count}</h1>
             <button onClick={()=>{
                 setCount(count+1)
@@ -36,3 +36,4 @@ const User=(props)=>{
 }
 
 export default User;
+

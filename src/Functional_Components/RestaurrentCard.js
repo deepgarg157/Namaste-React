@@ -10,12 +10,12 @@ const RestaurrentCard = (props) => {
     avgRating,
     costForTwo } = resName?.info
   return (
-    <div className="res-card" style={{ backgroundColor: "#f0f0f0" }}>
-      <img className="res-logo" src={CDN_LINK + cloudinaryImageId} alt="res-logo"></img>
-      <h3>{name}</h3>
-      <h4>{cuisines.join(", ")}</h4>
-      <h4>{avgRating} Rating</h4>
-      <h4>{costForTwo} costs</h4>
+    <div className="bg-slate-200 m-2 p-2 w-62 rounded-lg">
+      <img className="w-48" src={CDN_LINK + cloudinaryImageId} alt="res-logo"></img>
+      <h3 className="w-32 px-2 font-bold my-2">{name}</h3>
+      <h4 className="w-48 px-2 text-green-500">{cuisines.join(", ")}</h4>
+      <h4 className="px-2">{avgRating} Rating</h4>
+      <h4 className="px-2">{costForTwo} costs</h4>
     </div>
   )
 }

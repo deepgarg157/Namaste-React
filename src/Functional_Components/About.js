@@ -31,7 +31,7 @@ const About = (props) => {
  
     return(
             <div>
-                <h1>This is About Page</h1>
+                <h1 className="font-bold px-3 my-4">This is About Page</h1>
                 <User />
                 <UserClass name={"First"}/>
             </div>
