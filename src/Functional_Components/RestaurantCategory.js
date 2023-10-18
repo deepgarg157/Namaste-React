@@ -1,16 +1,28 @@
+import { useState } from "react";
 import ItemsList from "./ItemList";
 
-const RestaurantCategory = ({data})=>{
-console.log(data)
+const RestaurantCategory = ({ data, showItems, setShowIndex}) => {
+
+    const handlerClick = ()=>{
+        setShowIndex()
+    }
+    
     return (
-        <div className="category">
-            {/* headers */}
-            <div>
-            <span>{data.title} ({data.itemCards.length})</span>
-            <span><img className="dowm-arrow" src="https://symbl-world.akamaized.net/i/webp/38/9aa4151972abf59344d01195bb967e.webp"></img></span>
+        <div>
+
+            {/* header */}
+            <div className="w-6/12 mx-auto my-4 bg-gray-100 shadow-lg p-4 ">
+
+                <div className="flex justify-between cursor-pointer" onClick={handlerClick}>
+                    <span className="font-bold">{data.title} ({data.itemCards.length})</span>
+                    <span>👇</span>
+                </div>
+
+                {/* accordion */}
+                { showItems && <ItemsList items={data.itemCards} />}
+
             </div>
-            {/* accordion body*/}
-            <ItemsList items = {data.itemCards}/>
+
         </div>
     )
 }

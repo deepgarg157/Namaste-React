@@ -81,7 +81,7 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6302312&lng=77.4349177&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
-    // console.log(json)
+    console.log(json)
     setListOfRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     setFilterRest(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
   }
@@ -97,7 +97,7 @@ const Body = () => {
 
   return listRestaurrent.length == 0 ? <Shimmer /> : (
     <div className="">
-      <div className="flex m-4">
+      <div className="flex mx-14 py-4">
         <div className="border-r-2 px-2 mx-3">
 
           <input className="mx-3 px-2" type="text" name="input" value={inputSearch} placeholder="Search" onChange={(e) => {
@@ -117,7 +117,7 @@ const Body = () => {
         }}>Top Rated Restaurrents</button>
 
       </div>
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap mx-20">
         {listRestaurrent.map((restaurant)=>(
           <Link
           to={"/restaurant/" + restaurant.info.id }
