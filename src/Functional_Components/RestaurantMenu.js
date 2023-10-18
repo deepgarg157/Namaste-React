@@ -8,6 +8,7 @@ import RestaurantCategory from "./RestaurantCategory";
 const RestaurantMenu = () => {
 
     const { resId } = useParams()
+
     const resInfo = useRestaurantMenu(resId)
 
     const [showIndex, SetShowIndex] = useState(null)
@@ -26,15 +27,15 @@ const RestaurantMenu = () => {
 
     return (
         <div className="text-center">
-                <h2 className="font-bold mt-5 text-2xl">{name}</h2>
-                <p className="text-gray-400 my-3 font-bold">{cuisines.join(", ")} - Rs.{costForTwo / 100}</p>
+            <h2 className="font-bold mt-5 text-2xl">{name}</h2>
+            <p className="text-gray-400 my-3 font-bold">{cuisines.join(", ")} - Rs.{costForTwo / 100}</p>
             {/* Categories accordions */}
-            {categories.map((category, index) => 
-            <RestaurantCategory key ={category.card.card.title} 
-            data={category.card.card}
-            showItems={showIndex === index ? true : false}
-            setShowIndex = {()=> SetShowIndex(index)}
-            />)}
+            {categories.map((category, index) =>
+                <RestaurantCategory key={category.card.card.title}
+                    data={category.card.card}
+                    showItems={showIndex === index ? true : false}
+                    setShowIndex={() => SetShowIndex(index)}
+                />)}
         </div>
     )
 }

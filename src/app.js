@@ -1,4 +1,4 @@
-import React, {lazy, Suspense} from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./Functional_Components/Header";
 import Body from "./Functional_Components/Body";
@@ -7,8 +7,8 @@ import About from "./Functional_Components/About";
 import Contact from "./Functional_Components/Contact";
 import Error from "./Functional_Components/Error";
 import RestaurantMenu from "./Functional_Components/RestaurantMenu";
-// import Grocery from "./Functional_Components/Grocery";
-import { Suspense, lazy } from "react";
+import { useState } from "react";
+import UseContext from "./utils/useContext";
 
 // Chunking
 // Code spliting
@@ -82,13 +82,26 @@ import { Suspense, lazy } from "react";
 
 // Food App through React
 
-const Grocery = lazy(()=> import("./Functional_Components/Grocery"))
+const Grocery = lazy(() => import("./Functional_Components/Grocery"))
 
 const AppLayout = () => {
-  return (<div className="app">
-    <Header />
-    <Outlet />
-  </div>
+
+  const [userName, setUserName] = useState("Deepanshu")
+
+  // useEffect(() => {
+  //   const data = {
+  //     name: "Deepanshu"
+  //   }
+  //   setUserName(userName)
+  // })
+
+  return (
+    <UseContext.Provider value={{ loggedInUser: userName, setUserName}}>
+      <div>
+        <Header />
+        <Outlet />
+      </div>
+    </UseContext.Provider>
   )
 }
 
@@ -110,16 +123,16 @@ const appRouter = createBrowserRouter([
         element: <Contact />
       },
       {
-        path:"/grocery",
+        path: "/grocery",
         element: <Suspense fallback={<h1>This is a grocery</h1>}><Grocery /></Suspense>
       },
       {
-        path:"/restaurant/:resId",
-        element:<RestaurantMenu />
+        path: "/restaurant/:resId",
+        element: <RestaurantMenu />
       }
     ],
     errorElement: <Error />
-  },
+  }
 
 ])
 

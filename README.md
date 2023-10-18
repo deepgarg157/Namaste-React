@@ -126,5 +126,11 @@ load > render > API > render
 - suspense in side the lazy
 - fallback
 
-#Sass
+# Sass
 
+# react content
+
+- useContext help to create anything to the parent form any functional components child
+
+# redux store & zustand
+- redux and react both are different library
