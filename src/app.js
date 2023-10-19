@@ -9,6 +9,9 @@ import Error from "./Functional_Components/Error";
 import RestaurantMenu from "./Functional_Components/RestaurantMenu";
 import { useState } from "react";
 import UseContext from "./utils/useContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from "./Functional_Components/Cart";
 
 // Chunking
 // Code spliting
@@ -86,22 +89,24 @@ const Grocery = lazy(() => import("./Functional_Components/Grocery"))
 
 const AppLayout = () => {
 
-  const [userName, setUserName] = useState("Deepanshu")
+  const [userName, setUserName] = useState("")
 
-  // useEffect(() => {
-  //   const data = {
-  //     name: "Deepanshu"
-  //   }
-  //   setUserName(userName)
-  // })
+  useEffect(() => {
+    const data = {
+      name: "Deepanshu"
+    }
+    setUserName(userName)
+  },[])
 
   return (
-    <UseContext.Provider value={{ loggedInUser: userName, setUserName}}>
-      <div>
-        <Header />
-        <Outlet />
-      </div>
-    </UseContext.Provider>
+    <Provider store={appStore}>
+      <UseContext.Provider value={{ loggedInUser: userName, setUserName }}>
+        <div>
+          <Header />
+          <Outlet />
+        </div>
+      </UseContext.Provider>
+    </Provider>
   )
 }
 
@@ -129,6 +134,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurant/:resId",
         element: <RestaurantMenu />
+      },
+      {
+        path : "/cart",
+        element :<Cart/>
       }
     ],
     errorElement: <Error />

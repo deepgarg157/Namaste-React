@@ -134,3 +134,11 @@ load > render > API > render
 
 # redux store & zustand
 - redux and react both are different library
+
+# Redux ToolKit
+- npm i @reduxjs/toolkit and npm i react-redux
+- Build our store
+- connect our store to our app
+- Slice (Cart slice)
+- dispatch action
+- Selector
