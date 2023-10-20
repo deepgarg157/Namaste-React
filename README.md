@@ -159,3 +159,5 @@ load > render > API > render
 - configure parcel config file to disable default babel transpilation
 - jest configuration - npx jest --init 
 - Install jsdom - like a browser - npm install --save-dev jest-environment-jsdom
+- Install @babel/preset-react
+- Install npm i -D @testing-library/jest-dom
