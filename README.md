@@ -105,8 +105,9 @@ load > render > API > render
 - show demo UI through shimmer before load the api..
 
 # Rounter React
-
- 
+- createBrowserRouter
+- RouterProvider
+- Outlet - is used for to make the children router 
 
 # class based components 
 - constructor
@@ -134,6 +135,7 @@ load > render > API > render
 
 # redux store & zustand
 - redux and react both are different library
+- we use redux for state management
 
 # Redux ToolKit
 - npm i @reduxjs/toolkit and npm i react-redux
@@ -142,3 +144,18 @@ load > render > API > render
 - Slice (Cart slice)
 - dispatch action
 - Selector
+
+# Testing our app (devloper)
+
+- Unit Testing - npm install --save-dev @testing-library/react
+- Integration Testing
+- End to End Testing
+
+# Setting up in our Testing App
+- Install React Testing Library  -  npm install --save-dev @testing-library/react
+- Install Jest  - npm i -D jest
+- Install Babel dependencies  - npm install --save-dev babel-jest @babel/core @babel/preset-env
+- install babel configuration
+- configure parcel config file to disable default babel transpilation
+- jest configuration - npx jest --init 
+- Install jsdom - like a browser - npm install --save-dev jest-environment-jsdom
