@@ -129,7 +129,7 @@ load > render > API > render
 
 # Sass
 
-# react content
+# react context
 
 - useContext help to create anything to the parent form any functional components child
 
