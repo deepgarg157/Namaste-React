@@ -13,13 +13,13 @@ const RestaurantCategory = ({ data, showItems, setShowIndex}) => {
             {/* header */}
             <div className="w-6/12 mx-auto my-4 bg-gray-100 shadow-lg p-4 ">
 
-                <div className="flex justify-between cursor-pointer">
-                    <span className="font-bold">{data?.title} ({data?.itemCards?.length})</span>
-                    <span  onClick={handlerClick}>👇</span>
+                <div className="flex justify-between cursor-pointer" onClick={handlerClick}>
+                    <span className="font-bold">{data.title} ({data.itemCards.length})</span>
+                    <span>👇</span>
                 </div>
 
                 {/* accordion */}
-                { showItems && <ItemsList items={data?.itemCards} />}
+                { showItems && <ItemsList items={data.itemCards} />}
 
             </div>
 
