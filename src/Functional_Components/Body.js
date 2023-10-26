@@ -82,7 +82,7 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6302312&lng=77.4349177&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
-    // console.log(json)
+    console.log(json)
     setListOfRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     setFilterRest(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
   }
@@ -98,12 +98,12 @@ const Body = () => {
 
   const { loggedInUser, setUserName } = useContext(UseContext);
 
-  return listRestaurrent.length == 0 ? <Shimmer /> : (
+  return listRestaurrent.length === 0 ? <Shimmer /> : (
     <div className="">
-      <div className="flex mx-14 py-3">
-        <div className="border-r-2 px-2 mx-3">
+      <div className="flex mx-14 my-3">
+        <div className="px-2 mx-3">
 
-          <input className="mx-3 px-2" type="text" name="input" value={inputSearch} placeholder="Search" onChange={(e) => {
+          <input className="border border-black py-2 mx-4 px-2 rounded-md" type="text" name="input" value={inputSearch} placeholder="Search" onChange={(e) => {
             SetInputSearch(e.target.value);
           }} />
 
@@ -112,18 +112,20 @@ const Body = () => {
             setFilterRest(filterRestaurant)
           }}>Search</button>
 
+          <button className="bg-slate-300 rounded-lg px-2 py-2 mx-4" onClick={() => {
+            console.log("clicked on rated button");
+            const filteredRestaurant = listRestaurrent.filter(rate => rate.info.avgRating >= 4)
+            setListOfRestaurants(filteredRestaurant)
+          }}>Top Rated Restaurrents</button>
+
         </div>
-        <button className="bg-slate-300 rounded-lg px-2" onClick={() => {
-          console.log("clicked on rated button");
-          const filteredRestaurant = listRestaurrent.filter(rate => rate.info.avgRating >= 4)
-          setListOfRestaurants(filteredRestaurant)
-        }}>Top Rated Restaurrents</button>
+
 
         <div >
           <label className="mx-4">UserName :</label>
-          <input className="border border-black m-2 p-1" 
-          value={loggedInUser} 
-          onChange={(e) => setUserName(e.target.value)}></input>
+          <input className="border border-black m-2 p-1 rounded-md"
+            value={loggedInUser}
+            onChange={(e) => setUserName(e.target.value)}></input>
         </div>
 
       </div>
