@@ -17,6 +17,8 @@ const Body = () => {
 
   const RestaurrentCardPromoted = withPromotedLabel(RestaurrentCard);
 
+  console.log(listRestaurrent)
+
   // normal JS variables
 
   // let listRestaurrent = [
@@ -113,8 +115,7 @@ const Body = () => {
           }}>Search</button>
 
           <button className="bg-slate-300 rounded-lg px-2 py-2 mx-4" onClick={() => {
-            console.log("clicked on rated button");
-            const filteredRestaurant = listRestaurrent.filter(rate => rate.info.avgRating >= 4)
+            const filteredRestaurant = listRestaurrent.filter(rate => rate.info.avgRating > 4)
             setListOfRestaurants(filteredRestaurant)
           }}>Top Rated Restaurrents</button>
 
@@ -132,7 +133,7 @@ const Body = () => {
 
 
       <div className="flex flex-wrap mx-20">
-        {listRestaurrent.map((restaurant) => (
+        {filterRest.map((restaurant) => (
           <Link
             to={"/restaurant/" + restaurant.info.id}
             key={restaurant.info.id}
