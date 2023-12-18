@@ -57,7 +57,7 @@ import Cart from "./Functional_Components/Cart";
 
 // React Components
 // Class based Components
-// React Functional Components
+// Functional Components
 
 // React Functional Components
 
