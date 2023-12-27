@@ -8,72 +8,12 @@ import UseContext from "../utils/useContext";
 
 const Body = () => {
 
-  // Local state variables - super power variable
-  // hooks useState
   const [listRestaurrent, setListOfRestaurants] = useState([]);
   const [filterRest, setFilterRest] = useState([]);
 
   const [inputSearch, SetInputSearch] = useState("");
 
-  const RestaurrentCardPromoted = withPromotedLabel(RestaurrentCard);
-
-  console.log(listRestaurrent)
-
-  // normal JS variables
-
-  // let listRestaurrent = [
-  //   {
-  //     "info": {
-  //       "id": "641038",
-  //       "name": "Biryani Mahal",
-  //       "cloudinaryImageId": "jgyhyl8ttz7owvit7liu",
-  //       "locality": "Shahberi",
-  //       "areaName": "crossing republic",
-  //       "costForTwo": "₹300 for two",
-  //       "cuisines": [
-  //         "Biryani",
-  //         "North Indian",
-  //         "Indian",
-  //         "Chinese"
-  //       ],
-  //       "avgRating": 4,
-  //     }
-  //   },
-  //   {
-  //     "info": {
-  //       "id": "641037",
-  //       "name": "Khana Mahal",
-  //       "cloudinaryImageId": "jgyhyl8ttz7owvit7liu",
-  //       "locality": "Shahberi",
-  //       "areaName": "crossing republic",
-  //       "costForTwo": "₹300 for two",
-  //       "cuisines": [
-  //         "Biryani",
-  //         "North Indian",
-  //         "Indian",
-  //         "Chinese"
-  //       ],
-  //       "avgRating": 4.7,
-  //     }
-  //   },
-  //   {
-  //     "info": {
-  //       "id": "6410377",
-  //       "name": "KFC",
-  //       "cloudinaryImageId": "jgyhyl8ttz7owvit7liu",
-  //       "locality": "Shahberi",
-  //       "areaName": "crossing republic",
-  //       "costForTwo": "₹300 for two",
-  //       "cuisines": [
-  //         "Biryani",
-  //         "North Indian",
-  //         "Indian",
-  //         "Chinese"
-  //       ],
-  //       "avgRating": 4.1,
-  //     }
-  //   }
-  // ]
+  // const RestaurrentCardPromoted = withPromotedLabel(RestaurrentCard);
 
   useEffect(() => {
     getRestaurants();
@@ -84,14 +24,9 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6302312&lng=77.4349177&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
-    console.log(json)
-    setListOfRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-    setFilterRest(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    setListOfRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    setFilterRest(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
   }
-
-  // if(listRestaurrent.length == 0){
-  // return <Shimmer/>
-  // } 
 
   const onlineStatus = useOnlineStatus();
 
@@ -116,7 +51,7 @@ const Body = () => {
 
           <button className="bg-slate-300 rounded-lg px-2 py-2 mx-4" onClick={() => {
             const filteredRestaurant = listRestaurrent.filter(rate => rate.info.avgRating > 4)
-            setListOfRestaurants(filteredRestaurant)
+            setFilterRest(filteredRestaurant)
           }}>Top Rated Restaurrents</button>
 
         </div>
@@ -138,10 +73,7 @@ const Body = () => {
             to={"/restaurant/" + restaurant.info.id}
             key={restaurant.info.id}
           >
-            {restaurant.info.promoted ? <RestaurrentCardPromoted resName={restaurant} /> : (
-              <RestaurrentCard resName={restaurant} />
-            )
-            }
+            <RestaurrentCard resName={restaurant} />
           </Link>
         ))}
       </div>

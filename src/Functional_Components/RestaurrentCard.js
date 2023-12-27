@@ -25,15 +25,15 @@ const RestaurrentCard = (props) => {
 
 // high order components
 
-export const withPromotedLabel = (RestaurrentCard) => {
-  return (props) => {
-    return (
-      <div>
-        <label className="promoted">Promoted</label>
-        <RestaurrentCard {...props} />
-      </div>
-    )
-  }
-}
+// export const withPromotedLabel = (RestaurrentCard) => {
+//   return (props) => {
+//     return (
+//       <div>
+//         <label className="promoted">Promoted</label>
+//         <RestaurrentCard {...props} />
+//       </div>
+//     )
+//   }
+// }
 
 export default RestaurrentCard;
